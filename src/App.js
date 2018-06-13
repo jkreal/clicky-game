@@ -1,78 +1,39 @@
 import React from "react";
 import Clicky from "./components/Clicky";
 import Navbar from "./components/Navbar";
-import Wrapper from "./components/Wrapper";
-import WrapperRow from "./components/WrapperRow";
-import WrapperColumn from "./components/WrapperColumn";
+import { Container, Row, Column } from "./components/Grid";
 import MainBody from "./components/MainBody";
+import Score from "./components/Score";
+
+var rows = [1, 2, 3];
+var columns = [1,2,3,4];
+
+var images = ['http://via.placeholder.com/150x150', 'http://via.placeholder.com/151x151', 'http://via.placeholder.com/149x149', 'http://via.placeholder.com/149x151'];
+
+var row1 = ['http://via.placeholder.com/150x150', 'http://via.placeholder.com/151x151', 'http://via.placeholder.com/149x149', 'http://via.placeholder.com/149x151'];
+
+var row2 = ['http://via.placeholder.com/150x150', 'http://via.placeholder.com/151x151', 'http://via.placeholder.com/149x149', 'http://via.placeholder.com/149x151'];
+
+var row3 = ['http://via.placeholder.com/150x150', 'http://via.placeholder.com/151x151', 'http://via.placeholder.com/149x149', 'http://via.placeholder.com/149x151'];
 
 const App = () => (
 
-	<Wrapper>
+	<Container>
 		
-		<WrapperRow>
+		<Row>
 			<Navbar/>
-		</WrapperRow>
+		</Row>
 
-	<MainBody>
-		<WrapperRow>
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
+		<Row>
+			<Column>
+			<Score/>
+			</Column>
 
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
+		</Row>
 
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
+	<MainBody row1={row1} row2={row2} row3={row3}/>
 
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-		</WrapperRow>
-
-		<WrapperRow>
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-		</WrapperRow>
-
-		<WrapperRow>
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-
-			<WrapperColumn>
-				<Clicky />
-			</WrapperColumn>
-		</WrapperRow>
-
-		</MainBody>
-
-</Wrapper>
+</Container>
 );
 
 export default App;

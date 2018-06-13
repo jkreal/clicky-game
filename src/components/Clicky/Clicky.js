@@ -3,10 +3,11 @@ import React from "react";
 class Clicky extends React.Component {
 
 	state = {
-		id: 0,
+		id: this.props.id || null,
+		image: this.props.image,
 		active: 'false',
 		divStyle : {
-			backgroundColor: 'red',
+			backgroundColor: this.props.color || 'red',
 			width: '10em',
 			height: '10em',
 		}
@@ -16,16 +17,23 @@ class Clicky extends React.Component {
 //handle click is working on div
 	handleClick = () => {
 		let bgstyle = {...this.state.divStyle};
+		let active = {...this.state.active};
 		if(bgstyle.backgroundColor === 'red') {
-			bgstyle.backgroundColor = 'blue'
+			bgstyle.backgroundColor = 'blue';
+			active = 'false';
 		} else {
-			bgstyle.backgroundColor = 'red'
+			bgstyle.backgroundColor = 'red';
+			active = 'true';
 		}
 
-		console.log(bgstyle.backgroundColor);
 		this.setState({
-			divStyle: bgstyle
+			divStyle: bgstyle,
+			active: active
 		});
+	}
+
+	randomize = () => {
+
 	}
 
 	render() {
@@ -34,7 +42,11 @@ class Clicky extends React.Component {
 				value={this.state.id}
 				onClick={this.handleClick}
 				style={this.state.divStyle}
-				active={this.state.active}>
+				active={this.state.active}
+				row={this.props.rows}
+				column={this.props.columns}
+				>
+				<img src={this.props.source}/>
 			</div>
 		);
 	}
