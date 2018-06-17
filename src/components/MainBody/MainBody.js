@@ -14,6 +14,11 @@ class MainBody extends React.Component {
 
 	}
 
+	componentDidUpdate() {
+		this.randomize();
+		console.log('randomized');
+	}
+
 	state = {
 		rows: this.props.rows,
 		columns: this.props.columns,
@@ -23,28 +28,54 @@ class MainBody extends React.Component {
 		row3: this.props.row3
 	};
 
+	shuffle = ( array ) => {
+		for (var i = array.length - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+		}
+		return array;
+	}
+
+	randomize = () => {
+
+		this.array1 = this.shuffle(this.state.row1);
+		this.array2 = this.shuffle(this.state.row2);
+		this.array3 = this.shuffle(this.state.row3);
+
+		this.setState({
+			row1: this.array1,
+			row2: this.array2,
+			row3: this.array3
+		});
+
+		console.log("click!");
+	}
+
 	render() {
 		return (
 			<React.Fragment>
 				<Row>
 				{this.state.row1.map( (row, index) => (
-					<Column key={'1-{index}'}>
-						<Clicky source={this.state.row1[index]}/>
+					<Column key={index + '1'}>
+						<Clicky source={this.state.row1[index]}
+							click={this.randomize}/>
 					</Column>
 				))};
 				</Row>
 
 			<Row>
-				{this.state.row1.map( (row, index) => (
-					<Column key={'2-{index}'}>
+				{this.state.row2.map( (row, index) => (
+					<Column key={index + '2'}>
 						<Clicky source={this.state.row2[index]}/>
 					</Column>
 				))};
 			</Row>
 
 			<Row>
-				{this.state.row1.map( (row, index) => (
-					<Column key={'3-{index}'}>
+				{this.state.row3.map( (row, index) => (
+					<Column key={index + '3'}>
 						<Clicky source={this.state.row3[index]}/>
 					</Column>
 				))};

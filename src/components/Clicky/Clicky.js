@@ -6,6 +6,7 @@ class Clicky extends React.Component {
 		id: this.props.id || null,
 		image: this.props.image,
 		active: 'false',
+		click: this.props.click,
 		divStyle : {
 			backgroundColor: this.props.color || 'red',
 			width: '10em',
@@ -25,14 +26,12 @@ class Clicky extends React.Component {
 			bgstyle.backgroundColor = 'red';
 			active = 'true';
 		}
+		this.state.click();
 
 		this.setState({
 			divStyle: bgstyle,
 			active: active
 		});
-	}
-
-	randomize = () => {
 
 	}
 
