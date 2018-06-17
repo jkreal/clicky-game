@@ -14,6 +14,12 @@ class Clicky extends React.Component {
 		}
 	};
 
+	resetGame = () => {
+		if(this.state.active == 'true'){
+			this.state.active = 'false'
+		}
+	}
+
 
 //handle click is working on div
 	handleClick = () => {
@@ -34,6 +40,7 @@ class Clicky extends React.Component {
 		});
 
 	}
+
 
 	render() {
 		return (

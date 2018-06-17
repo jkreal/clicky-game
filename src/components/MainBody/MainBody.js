@@ -15,8 +15,7 @@ class MainBody extends React.Component {
 	}
 
 	componentDidUpdate() {
-		this.randomize();
-		console.log('randomized');
+
 	}
 
 	state = {
@@ -68,7 +67,8 @@ class MainBody extends React.Component {
 			<Row>
 				{this.state.row2.map( (row, index) => (
 					<Column key={index + '2'}>
-						<Clicky source={this.state.row2[index]}/>
+						<Clicky source={this.state.row2[index]}
+							click={this.randomize}/>
 					</Column>
 				))};
 			</Row>
@@ -76,7 +76,8 @@ class MainBody extends React.Component {
 			<Row>
 				{this.state.row3.map( (row, index) => (
 					<Column key={index + '3'}>
-						<Clicky source={this.state.row3[index]}/>
+						<Clicky source={this.state.row3[index]}
+							click={this.randomize}/>
 					</Column>
 				))};
 			</Row>
